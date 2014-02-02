@@ -1,0 +1,14 @@
+Notas, 20/04/2011
+
+Esta é a versão do DBSniffer usando a biblioteca de C libpcap que é usada pelo Snort, Tcpdump e Wireshark.
+Neste momento só foi testada a parte da captura de pacotes para a aprendizagem, ou seja as opções:
+-m sniffer e -m learner (e as associadas justlearner e justparser)
+
+Para trabalho futuro gostaria de:
+*) Concluir a implmentação usando o libpcap.
+*) ver o DBSniffer "limpo" dos restos do código que ainda existe relativo à captura directa dos pacotes.
+*) que guardasse os dados numa BD SQLite em vez de ficheiros. Usar a versão Amalgamation, já que todo o código do SQLite se encontra num único ficheiro em C e respectivo Header file. A utilização do Amalgamation torna o SQLite ainda mais rápido devido a optimizações do compilador.
+
+Para melhoria das taxas de falsos positivos e falsos negativos, poderia-se introduzir inteligência no modelo dos perfis poderia usar-se informação contida no fluxo HTTP conjuntamente com o que vai no fluxo MySQL. Por exemplo o nome do utilizador ou o seu ID, o nº da sessão. Com isto talvez se conseguisse, de forma automática, detectar inside intrusions e ataques manipulando somente os valores dos campos, sem alterar a estrutura da query. Após a aprendizagem pode-se conseguir obter um conjunto de equivalências que são mostradas ao utilizador para que este as valide/actualize antes do IDS ficar em modo de detecção. Pode-se conseguir verificar situações em que os vários utilizadores da aplicação são um único utilizador da BD através de variáveis ou parâmetros que se conseguem obter do fluxo HTTP. Neste caso usar-se-iam também estes dados na definição dos perfis. Embora as transacções não acrescentem mais tempo na aprendizagem poderão ser úteis na detecção de intrusões (este aspecto nunca foi explorado). Estes aspectos poderiam ser testados com a aplicação do SWIM SUIT do SESM em Nápoles.
+
+De facto, na pasta tcpdump, encontram-se dumps de um teste ao SWIM SUIT, que podem ser usados.
