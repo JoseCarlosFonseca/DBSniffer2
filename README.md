@@ -5,4 +5,4 @@ DBSniffer2
 
 IDS/IPS for Oracle and MySQL
 
-Copyright (C) 2011 by Jose Fonseca (jozefonseca at gmail dot com)
+Copyright (C) 2011 by Jose Fonseca (josefonseca at ipg dot pt , jozefonseca at gmail dot com)
